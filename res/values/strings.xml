@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CatFilms</string>
+    <string name="action_settings">Preferències</string>
+    <string name="desc_list_item_icon">Item Icon</string>
+    <string name="sortir">Sortir</string>
+    <string name="films">Pel·lícules</string>
+    <string name="cines">Cinemes</string>
+    <string name="cicles">Cicles</string>
+    <string name="infocinecat">Sobre CineCat</string>
+
+    <string name="drawer_open">Obrir menu</string>
+    <string name="drawer_close">Tancar menur</string>
+
+    <string name="file_prefs">cinecat_prefs</string>
+    <string name="uptaded_data">actualitzat</string>
+    <string name="menu_opcio1">Cerca Cinemes</string>
+    <string name="menu_opcio2">Cerca Pel·lícules</string>
+    <string name="menu_opcio3">Esborra</string>
+    <string name="menu_opcio4">Edita</string>
+
+
+    <string-array name="DadesSpinner">
+        <item>Pel·lícules</item>
+        <item>Cinemes</item>
+    </string-array>
+
+</resources>
