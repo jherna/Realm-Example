@@ -11,16 +11,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cat.exemple.catfilms.view.Cerca">
 
-
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:id="@+id/spn1"
         />
 
     <Spinner
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:id="@+id/spn2" />
+        android:id="@+id/spn2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp" />
+
+    <ListView
+        android:id="@+id/lsvCerca"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp" />
 
 </LinearLayout>

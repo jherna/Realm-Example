@@ -26,8 +26,9 @@ import io.realm.annotations.PrimaryKey;
 
 public class Cinema extends RealmObject {
 	@PrimaryKey private String Id;
-	private String Nom, Adreca, Localitat, Provincia;
+	private String Nom, Adreca, Provincia;
 	@Index private String Comarca;
+	@Index private String Localitat;
 
 
 	public Cinema(String id, String nom, String adreca, String localitat, String comarca, String Provincia) {

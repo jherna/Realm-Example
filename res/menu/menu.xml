@@ -9,5 +9,4 @@
         android:id="@+id/menuopcio2"
         android:title="@string/menu_opcio2" />
 
-
 </menu>
