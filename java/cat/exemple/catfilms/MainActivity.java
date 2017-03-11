@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -21,6 +22,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import cat.exemple.catfilms.Adapters.ListCinemaAdapter;
@@ -32,6 +35,7 @@ import cat.exemple.catfilms.model.Cinema;
 import cat.exemple.catfilms.model.Film;
 import cat.exemple.catfilms.view.Cerca;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = getApplicationContext();
+
+
         realm = Realm.getDefaultInstance();
 
         lsvData = (ListView) findViewById(R.id.lsvFilms);
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         final RealmResults<Film> pelis = realm.where(Film.class).findAll();
-                        filmAdapter = new ListFilmAdapter(context, pelis);
+                        filmAdapter = new ListFilmAdapter(pelis);
                         if(pelis.size()>0) lsvData.setAdapter(filmAdapter);
                         selectedData = SelectedData.FILM;
                         filmAdapter.notifyDataSetChanged();
@@ -78,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         final RealmResults<Cinema> cines = realm.where(Cinema.class).findAll();
-                        cineAdapter = new ListCinemaAdapter(context, cines);
+                        cineAdapter = new ListCinemaAdapter(cines);
                         if(cines.size()>0) lsvData.setAdapter(cineAdapter);
                         selectedData = SelectedData.CINEMA;
                         cineAdapter.notifyDataSetChanged();

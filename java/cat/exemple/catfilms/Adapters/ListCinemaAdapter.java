@@ -20,8 +20,8 @@ import io.realm.RealmBaseAdapter;
 
 public class ListCinemaAdapter extends RealmBaseAdapter<Cinema> implements ListAdapter {
 
-    public ListCinemaAdapter(@NonNull Context context, @Nullable OrderedRealmCollection<Cinema> data) {
-        super(context, data);
+    public ListCinemaAdapter(@Nullable OrderedRealmCollection<Cinema> data) {
+        super(data);
 
     }
 

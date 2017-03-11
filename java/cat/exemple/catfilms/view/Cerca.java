@@ -31,6 +31,7 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
     private ArrayAdapter<String> adapter;
     Realm realm;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,7 +116,7 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
         RealmResults<Cinema> cinemes = realm.where(Cinema.class)
                 .equalTo("Localitat", spn2.getSelectedItem().toString())
                 .findAll();
-        listCinemaAdapter = new ListCinemaAdapter(context,cinemes);
+        listCinemaAdapter = new ListCinemaAdapter(cinemes);
         if(cinemes.size()>0) lsvCerca.setAdapter(listCinemaAdapter);
         listCinemaAdapter.notifyDataSetChanged();
     }

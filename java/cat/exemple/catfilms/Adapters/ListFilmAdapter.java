@@ -19,8 +19,8 @@ import cat.exemple.catfilms.model.Film;
 
 public class ListFilmAdapter extends RealmBaseAdapter<Film> implements ListAdapter {
 
-    public ListFilmAdapter(@NonNull Context context, @Nullable OrderedRealmCollection<Film> data) {
-        super(context, data);
+    public ListFilmAdapter(@Nullable OrderedRealmCollection<Film> data) {
+        super(data);
 
     }
 
