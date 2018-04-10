@@ -13,19 +13,21 @@ import io.realm.RealmConfiguration;
 
 public class CatFilmsApp extends Application {
 
-    //public static final String AUTH_URL = "http:/10.0.8.227:9080/auth";
-    //public static final String REALM_URL = "realm://10.0.8.227:9080/~/realmtasks";
-
     @Override
     public void onCreate() {
         super.onCreate();
+
+
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("catfilms.realm")
                 .schemaVersion(0)
                 .migration(new Migration())
                 .build();
+
+
         Realm.setDefaultConfiguration(config);
+
         Log.d("start", "CatFilmsApp");
     }
 }

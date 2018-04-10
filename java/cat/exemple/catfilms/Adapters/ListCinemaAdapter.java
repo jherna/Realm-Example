@@ -22,7 +22,6 @@ public class ListCinemaAdapter extends RealmBaseAdapter<Cinema> implements ListA
 
     public ListCinemaAdapter(@Nullable OrderedRealmCollection<Cinema> data) {
         super(data);
-
     }
 
     private static class ViewHolder {

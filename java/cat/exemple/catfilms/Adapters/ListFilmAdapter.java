@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -29,7 +30,8 @@ public class ListFilmAdapter extends RealmBaseAdapter<Film> implements ListAdapt
         TextView txvVersio;
     }
 
-   @Override
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if(convertView == null) {

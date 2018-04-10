@@ -1,7 +1,5 @@
 /*
 Copyright (C) <2015>  <Jordi Hernandez>
-Twitter: @jordikarate 
-Web: http://www.jordihernandez,cat
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -108,6 +106,7 @@ public class CinemaParseXML {
         Cinema noucine = new Cinema(IdCinema, NomCinema, Adreca, Localitat, Comarca, Provincia);
     	Log.i("CINEMA",noucine.toString());
         Realm realm = Realm.getDefaultInstance();
+
         realm.beginTransaction();
         Cinema rCinema = realm.copyToRealmOrUpdate(noucine);
         realm.commitTransaction();

@@ -18,9 +18,11 @@ import cat.exemple.catfilms.R;
 import cat.exemple.catfilms.model.Cinema;
 import cat.exemple.catfilms.model.Film;
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private final String TAG = getClass().toString();
     private Spinner spn1,spn2;
     private ListView lsvCerca;
     private ListCinemaAdapter listCinemaAdapter;
@@ -51,12 +53,12 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
         //Primera càrrega del spinner principal
         realm = Realm.getDefaultInstance();
         if (spin == 1) {
-            RealmResults<Cinema> cinemes = realm.where(Cinema.class).distinct("Comarca");
+            RealmResults<Cinema> cinemes = realm.where(Cinema.class).distinct("Comarca").findAll();
             for (Cinema c : cinemes) {
                 if (c.getComarca() != null) llista.add(c.getComarca());
             }
         } else {
-            RealmResults<Film> films = realm.where(Film.class).distinct("versio");
+            RealmResults<Film> films = realm.where(Film.class).distinct("versio").findAll();
             for (Film c : films) {
                 if (c.getVersio() != null) llista.add(c.getVersio());
             }
@@ -76,7 +78,6 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
 
         registerForContextMenu(lsvCerca);
 
-
     }
 
 
@@ -88,9 +89,9 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
                 else { ; } //TODO càrrega del spinner2 per films
                 break;
             case R.id.spn2:
+                Log.d(TAG,"spinner:" + spin + " click spinner 2");
                 if(spin == 1) loadCinemesLocalitat(spn2.getSelectedItem().toString());
                 break;
-            default: Log.d("Cerca", "position default" + position);
         }
 
     }
@@ -103,7 +104,7 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
     private void loadLocalitats() {
         RealmResults<Cinema> cinemes = realm.where(Cinema.class)
                 .equalTo("Comarca", spn1.getSelectedItem().toString())
-                .distinct("Localitat");
+                .distinct("Localitat").findAll();
         llista2.clear();
         for (Cinema c : cinemes) {
             llista2.add(c.getLocalitat());
@@ -116,8 +117,11 @@ public class Cerca extends AppCompatActivity implements AdapterView.OnItemSelect
         RealmResults<Cinema> cinemes = realm.where(Cinema.class)
                 .equalTo("Localitat", spn2.getSelectedItem().toString())
                 .findAll();
+        Log.d(TAG, "cinemes trobats:" + cinemes.size() + " a " + spn2.getSelectedItem().toString());
         listCinemaAdapter = new ListCinemaAdapter(cinemes);
-        if(cinemes.size()>0) lsvCerca.setAdapter(listCinemaAdapter);
+        lsvCerca.setAdapter(listCinemaAdapter);
         listCinemaAdapter.notifyDataSetChanged();
     }
+
+
 }

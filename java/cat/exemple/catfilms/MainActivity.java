@@ -7,7 +7,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -23,7 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import cat.exemple.catfilms.Adapters.ListCinemaAdapter;
@@ -35,7 +33,6 @@ import cat.exemple.catfilms.model.Cinema;
 import cat.exemple.catfilms.model.Film;
 import cat.exemple.catfilms.view.Cerca;
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
